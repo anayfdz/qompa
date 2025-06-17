@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Receipt {
+  id            String   @id @default(uuid())
+  company_id    String
+  supplier_ruc  String
+  invoice_number String
+  amount        Float
+  igv           Float
+  total         Float
+  issue_date    DateTime
+  document_type String
+  state         String
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
