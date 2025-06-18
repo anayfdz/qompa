@@ -2,7 +2,8 @@ import { Controller, Post, Body, Get, Patch, Param, Query, Res } from '@nestjs/c
 import { ReceiptsService } from './receipts.service';
 import { CreateReceiptDto } from './dto/create-receipt.dto';
 import { UpdateReceiptStateDto } from './dto/update-receipt-state.dto';
-import { Response } from 'express';
+import type { Response } from 'express';
+import { PaginationDto } from './dto/pagination.dto';
 
 @Controller('receipts')
 export class ReceiptsController {
@@ -19,8 +20,8 @@ export class ReceiptsController {
   }
 
   @Get()
-  findAll(@Query() query: any) {
-    return this.service.findAll(query);
+  findAll(@Query() query: any, @Query() pagination: PaginationDto) {
+    return this.service.findAll(query, pagination);
   }
 
   @Get('export')

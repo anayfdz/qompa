@@ -6,9 +6,10 @@
       "ES2022"
     ],
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "NodeNext",
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "paths": {
       "~encore/*": [
@@ -20,7 +21,8 @@
     /* Strict Type-Checking Options */
     "strict": true,
     /* Module Resolution Options */
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "sourceMap": true,
@@ -29,6 +31,15 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
